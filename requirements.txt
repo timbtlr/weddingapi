@@ -1,0 +1,11 @@
+django==1.8
+djangorestframework==3.1
+djangorestframework-jwt
+django-cors-headers
+path.py==7.2
+gunicorn
+dj_database_url
+psycopg2
+dj_static
+django-s3direct
+whitenoise
