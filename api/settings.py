@@ -8,7 +8,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_KEY")
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY")
 S3DIRECT_REGION = os.environ.get("AWS_REGION")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("S3_BUCKET")
-DATABASE_URL = os.environ.get("HEROKU_POSTGRESQL_ONYX_URL")
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
