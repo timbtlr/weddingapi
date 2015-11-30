@@ -11,7 +11,7 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get("S3_BUCKET")
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = False
 
