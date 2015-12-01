@@ -68,7 +68,7 @@ TEMPLATE_DIRS = (
 
 ROOT_URLCONF = 'urls'
 
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 CORS_ORIGIN_ALLOW_ALL = True
 

@@ -19,8 +19,6 @@ class ApiTokenPermissions(BasePermission):
     """
     def has_permission(self, request, view):
     	key = get_authorization_header(request)
-        print (key)
-        print (settings.API_TOKEN)
     	if key == settings.API_TOKEN:
     		return True
     	return False
