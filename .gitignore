@@ -3,3 +3,7 @@
 *.sql
 migrations
 staticfiles/*
+venv
+*.pyc
+db.sqlite3
+db.*

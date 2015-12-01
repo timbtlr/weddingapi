@@ -18,15 +18,20 @@ class SiteJsonRenderer(JSONRenderer):
 		else:
 			error_list = []
 
-			for key in data:
-				error_list.append(
-					{
+			if isinstance(data, list):
+				for key in data:
+					error_list.append({
 						"status": response.status_code,
 						"error_key": key,
-						"detail": data[key][0]
-					}
-				)
-			new_response['errors'].append(error_list)
+						"error_detail": data[key][0]
+					})
+				new_response['errors'].append(error_list)
+			else:
+				new_response['errors'].append({
+					"status": response.status_code,
+					"error_key": data.get("error_key"),
+					"error_detail": data.get("detail")
+				})
 
 		return super(SiteJsonRenderer, self).render(
 			data=new_response, renderer_context=renderer_context)
