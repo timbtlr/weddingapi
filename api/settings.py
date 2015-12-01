@@ -9,6 +9,7 @@ AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY")
 S3DIRECT_REGION = os.environ.get("AWS_REGION")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("S3_BUCKET")
 DATABASE_URL = os.environ.get("DATABASE_URL")
+API_TOKEN = os.environ.get("API_TOKEN")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -71,9 +72,14 @@ WSGI_APPLICATION = 'wsgi.application'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL),
-}
+DATABASES = {}
+if DATABASE_URL:
+    DATABASES['default'] = dj_database_url.parse(DATABASE_URL)
+else:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 
 
 # Internationalization
