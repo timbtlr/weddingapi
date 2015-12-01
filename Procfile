@@ -1,1 +1,1 @@
-web: python api/manage.py collectstatic --noinput; gunicorn --pythonpath api api.wsgi --log-file -
+web: python app/manage.py collectstatic --noinput; gunicorn --pythonpath app app.config.wsgi --log-file -
