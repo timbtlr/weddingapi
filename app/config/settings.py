@@ -14,9 +14,7 @@ API_TOKEN = os.environ.get("API_TOKEN")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = False
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.tymanderin.com', 'gile-hamlet-2538.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
