@@ -2,15 +2,15 @@ from django.conf import settings
 from rest_framework.permissions import BasePermission
 from rest_framework.authentication import get_authorization_header
 
-class ViewModelPermissions(BasePermission):
+
+class GetPermission(BasePermission):
     """
-    Allows access only to authenticated users.
+    Allows access if the request method is a GET.
     """
     def has_permission(self, request, view):
-    	if request.method == 'GET':
-    		return True
-    	else:
-    		return request.user and request.user.is_authenticated()
+        if request.method == 'GET':
+            return True
+        return False
 
 
 class ApiTokenPermissions(BasePermission):
@@ -18,7 +18,7 @@ class ApiTokenPermissions(BasePermission):
     Allows access if the request contains a valid API key.
     """
     def has_permission(self, request, view):
-    	key = get_authorization_header(request)
-    	if key == settings.API_TOKEN:
-    		return True
-    	return False
+        key = get_authorization_header(request)
+        if key == settings.API_TOKEN:
+            return True
+        return False

@@ -18,10 +18,8 @@ class AdminUserViewSet (viewsets.ModelViewSet):
 			if user.is_active:
 				login(request, user)
 			else:
-				# Unsuccessful
 				pass
 		else:
-			# Unsuccessful
 			pass
 
 	@detail_route(methods=['get',], url_path='logout'):
