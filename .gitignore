@@ -1,7 +1,6 @@
 *.env
 *.pyc
 *.sql
-migrations
 staticfiles/*
 venv
 *.pyc
