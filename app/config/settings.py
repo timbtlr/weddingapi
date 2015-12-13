@@ -12,7 +12,7 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 API_TOKEN = os.environ.get("API_TOKEN")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.tymanderin.com', '.agile-hamlet-2538.herokuapp.com', 'localhost', '127.0.0.1']
 
