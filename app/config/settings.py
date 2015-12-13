@@ -14,7 +14,7 @@ API_TOKEN = os.environ.get("API_TOKEN")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tymanderin.com', 'agile-hamlet-2538.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.tymanderin.com', '.agile-hamlet-2538.herokuapp.com', 'localhost', '127.0.0.1']
 
 CORS_ORIGIN_ALLOW_ALL = True
 

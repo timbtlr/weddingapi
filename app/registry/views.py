@@ -6,7 +6,6 @@ from .serializers import RegistryItemSerializer
 
 
 class RegistryItemViewSet(viewsets.ModelViewSet):
-
     serializer_class = RegistryItemSerializer
     permission_classes = (Or(ApiTokenPermissions, GetPermission), )
 
