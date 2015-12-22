@@ -1,12 +1,16 @@
 from django.db import models
 
-# Create your models here.
-class RSVP(models.Model):
+class Invitation(models.Model):
+    id = models.CharField(primary_key=True, max_length=20)
+    message = models.CharField(max_length=1000, null=True, blank=True)
+
+    def __unicode__(self):
+        return self.id
+
+class Invitee(models.Model):
+    invitation = models.ForeignKey(Invitation, related_name='invitees')
     name = models.CharField(max_length=200)
     attending = models.BooleanField(default=False)
-    plus_one = models.BooleanField(default=False)
-    food_choice = models.CharField(max_length=200)
-    drink_choice = models.CharField(max_length=200)
 
-    def __unicode__(self): 
+    def __unicode__(self):
         return self.name

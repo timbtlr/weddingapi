@@ -1,12 +1,21 @@
 from rest_framework import viewsets
 from rest_condition import Or
 from common.permissions import ApiTokenPermissions, GetPermission
-from .models import RSVP
-from .serializers import RSVPSerializer
+from .models import Invitation, Invitee
+from .serializers import InvitationSerializer, InviteeSerializer
 
-class RsvpViewSet(viewsets.ModelViewSet):
-    serializer_class = RSVPSerializer
-    permission_classes = (Or(ApiTokenPermissions, GetPermission), )
+
+class InvitationViewSet(viewsets.ModelViewSet):
+    serializer_class = InvitationSerializer
+    permission_classes = (ApiTokenPermissions, )
 
     def get_queryset (self):
-        return RSVP.objects.all()
+        return Invitation.objects.all()
+
+
+class InviteeViewSet(viewsets.ModelViewSet):
+    serializer_class = InviteeSerializer
+    permission_classes = (ApiTokenPermissions, )
+
+    def get_queryset (self):
+        return Invitee.objects.all()
