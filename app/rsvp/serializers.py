@@ -1,9 +1,16 @@
+import json
 from rest_framework import serializers
+from .models import Invitation, Invitee
 
-from .models import RSVP
+class InvitationSerializer(serializers.ModelSerializer):
 
-class RSVPSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = RSVP
-		fields = ('id', 'name', 'attending', 'plus_one',
-				  'food_choice', 'drink_choice')
+    invitees = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Invitation
+        fields = ('id', 'message', 'invitees', )
+
+class InviteeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Invitee
+        fields = ('invitation', 'name', 'attending', )
