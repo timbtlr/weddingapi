@@ -13,4 +13,4 @@ class InvitationSerializer(serializers.ModelSerializer):
 class InviteeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invitee
-        fields = ('invitation', 'name', 'attending', )
+        fields = ('id', 'invitation', 'name', 'attending', )
