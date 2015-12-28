@@ -13,7 +13,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Invitation',
             fields=[
-                ('id', models.CharField(max_length=20, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('invite_name', models.CharField(max_length=20, null=True)),
                 ('message', models.CharField(max_length=1000, null=True, blank=True)),
             ],
         ),
@@ -23,7 +24,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=200)),
                 ('attending', models.BooleanField(default=False)),
-                ('invitation', models.ForeignKey(to='rsvp.Invitation')),
+                ('invitation', models.ForeignKey(related_name='invitees', to='rsvp.Invitation')),
             ],
         ),
     ]
