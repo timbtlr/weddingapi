@@ -4,7 +4,7 @@ from .models import Invitation, Invitee
 
 class InvitationSerializer(serializers.ModelSerializer):
 
-    invitees = serializers.StringRelatedField(many=True)
+    invitees = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Invitation
