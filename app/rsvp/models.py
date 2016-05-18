@@ -10,7 +10,7 @@ class Invitation(models.Model):
 class Invitee(models.Model):
     invitation = models.ForeignKey(Invitation, related_name='invitees')
     name = models.CharField(max_length=200)
-    attending = models.BooleanField(default=False)
+    attending = models.BooleanField(default=None)
 
     def __unicode__(self):
         return self.name
