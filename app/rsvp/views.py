@@ -19,6 +19,8 @@ class InvitationViewSet(viewsets.ModelViewSet):
 class InviteeViewSet(viewsets.ModelViewSet):
     serializer_class = InviteeSerializer
     permission_classes = (ApiTokenPermissions, )
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('attending', )
 
     def get_queryset (self):
         return Invitee.objects.all()
