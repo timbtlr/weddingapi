@@ -3,6 +3,7 @@ from django.db import models
 class Invitation(models.Model):
     invite_name = models.CharField(max_length=20, null=True)
     message = models.CharField(max_length=1000, null=True, blank=True)
+    song_request = models.CharField(max_length=1000, null=True, blank=True)
 
     def __unicode__(self):
         return self.invite_name
