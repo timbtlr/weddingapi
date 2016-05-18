@@ -8,7 +8,7 @@ class InvitationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Invitation
-        fields = ('id', 'invite_name', 'message', 'invitees', )
+        fields = ('id', 'invite_name', 'message', 'invitees', 'song_request')
 
 class InviteeSerializer(serializers.ModelSerializer):
     class Meta:
