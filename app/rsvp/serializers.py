@@ -14,7 +14,10 @@ class InviteeSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         instance.timestamp = datetime.now()
+        instance.attending = validated_data.get('attending')
+        instance.save()
         return instance
+
 
     class Meta:
         model = Invitee
