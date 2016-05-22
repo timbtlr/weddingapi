@@ -21,6 +21,9 @@ class InviteeViewSet(viewsets.ModelViewSet):
     permission_classes = (ApiTokenPermissions, )
     filter_backends = (filters.SearchFilter, )
     search_fields = ('attending', )
+    filter_backends = (filters.OrderingFilter,)
+    ordering_fields = ('timestamp')
+    ordering = ('-timestamp', )
 
     def get_queryset (self):
         return Invitee.objects.all()
